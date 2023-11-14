@@ -7,7 +7,7 @@
   <title>Weboender | Laravel Class BootCamp 2023</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+  <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.css" rel="stylesheet">
   <style>
     main {
       min-height: 85vh;
@@ -58,22 +58,70 @@
   </header>
   <main class="py-3 bg-light">
     <div class="container">
-      <h1>Dashboard</h1>
+      <h1>Products</h1>
       <hr>
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h3>Users</h3>
-              <p class="text-muted">60</p>
-            </div>
+        <div class="col-12 mb-3">
+          <div class="mb-3">
+            <a href="./add-product.html" class="btn btn-primary">Add New</a>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
           <div class="card">
             <div class="card-body">
-              <h3>Products</h3>
-              <p class="text-muted">60</p>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover table align-middle">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th></th>
+                      <th>Product Name</th>
+                      <th>Price</th>
+                      <th>Stock</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td><img
+                          src="https://images.pexels.com/photos/12894380/pexels-photo-12894380.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                          alt="" width="100" class="rounded"></td>
+                      <td>Nikon Camera</td>
+                      <td>Rp. 3000.000</td>
+                      <td>10</td>
+                      <td>
+                        <a href="#" class="btn btn-sm btn-warning mb-3">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger mb-3">Delete</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td><img
+                          src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt="" width="100" class="rounded"></td>
+                      <td>Drone</td>
+                      <td>Rp. 3000.000</td>
+                      <td>10</td>
+                      <td>
+                        <a href="#" class="btn btn-sm btn-warning mb-3">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger mb-3">Delete</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td><img
+                          src="https://images.pexels.com/photos/267391/pexels-photo-267391.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt="" width="100" class="rounded"></td>
+                      <td>Smart Watch</td>
+                      <td>Rp. 3000.000</td>
+                      <td>10</td>
+                      <td>
+                        <a href="#" class="btn btn-sm btn-warning mb-3">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger mb-3">Delete</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -92,6 +140,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.table').DataTable();
+    });
+  </script>
 </body>
 
 </html>
