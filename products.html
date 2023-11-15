@@ -5,8 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Weboender | Laravel Class BootCamp 2023</title>
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./assets/css/datatables.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- Shortcut Icon -->
+  <link rel="shortcut icon" href="./assets/img/logo.jpg" type="image/x-icon">
+
+  <!-- Styles -->
+  <link href="./assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/datatables.min.css">
+
   <style>
     main {
       min-height: 85vh;
@@ -16,6 +28,10 @@
       position: relative;
       height: 56px;
     }
+
+    .navbar-brand {
+      font-family: 'Pacifico', cursive;
+    }
   </style>
 </head>
 
@@ -24,7 +40,8 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="./index.html">Weboender Store</a>
+        <a class="navbar-brand" href="./index.html"><img src="./assets/img/logo.jpg" alt="" height="30"
+            class="rounded-circle"> Weboender Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
