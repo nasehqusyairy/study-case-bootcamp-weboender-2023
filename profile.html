@@ -76,12 +76,12 @@
       <form class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
           <div class="card">
-            <div class="card-body">
-              <img src="./assets/img/user.jpg" alt="" class="img-fluid img-thumbnail mb-3" id="img-preview">
-              <div class="mb-3">
-                <label for="img" class="form-label">Profile Picture</label>
-                <input class="form-control" name="img" type="file" id="img">
-              </div>
+            <div class="card-body text-center">
+              <img
+                src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"
+                alt="" class="img-fluid rounded-center mb-3">
+              <h3>John Doe</h3>
+              <p class="text-muted">youremail@example.com</p>
             </div>
           </div>
         </div>
@@ -122,17 +122,6 @@
 
   <script src="./assets/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/sweetalert2@11.js"></script>
-  <script>
-    const imgInput = document.getElementById('img')
-    const imgPreview = document.getElementById('img-preview')
-
-    imgInput.onchange = evt => {
-      const [file] = imgInput.files
-      if (file) {
-        imgPreview.src = URL.createObjectURL(file)
-      }
-    }
-  </script>
 </body>
 
 </html>
