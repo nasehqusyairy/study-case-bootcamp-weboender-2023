@@ -17,6 +17,7 @@
   <!-- Styles -->
   <link href="./assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/datatables.min.css">
 
   <style>
     main {
@@ -48,10 +49,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./index.html">Dashboard</a>
+              <a class="nav-link" href="./index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./products.html">Products</a>
+              <a class="nav-link" href="./search.html">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cart.html">Cart</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -61,6 +65,14 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="./profile.html">My Profile</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="./payment-methods.html">Credit/Debit</a></li>
+                <li><a class="dropdown-item" href="./shipping-addresses.html">Shipping Addresses</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="./login.html">Sign Out</a></li>
               </ul>
             </li>
@@ -71,36 +83,35 @@
   </header>
   <main class="py-3 bg-light">
     <div class="container">
-      <h1>New Product</h1>
+      <h1>New Card</h1>
       <hr>
       <form class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <img src="./assets/img/product.jpg" alt="" class="img-fluid img-thumbnail mb-3" id="img-preview">
-              <div>
-                <label for="img" class="form-label">Product Image</label>
-                <input class="form-control" name="img" type="file" id="img">
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="col-12 col-md">
-          <div class="card">
+          <div class="card mb-3">
             <div class="card-body">
-              <h3>Product Details</h3>
-              <hr>
               <div class="mb-3">
-                <label for="name">Product Name</label>
-                <input type="text" name="product_name" id="name" class="form-control">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control">
               </div>
               <div class="mb-3">
-                <label for="price">Price</label>
-                <input type="number" name="price" id="price" class="form-control">
+                <label for="card_number">Card Number</label>
+                <input type="text" name="card_number" id="card_number" class="form-control">
               </div>
               <div class="mb-3">
-                <label for="stock">Stock</label>
-                <input type="number" name="stock" id="stock" class="form-control">
+                <label for="expiry_date">Expiry Date (BB/TT)</label>
+                <input type="text" name="expiry_date" id="expiry_date" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="cvv">CVV</label>
+                <input type="text" name="cvv" id="cvv" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" id="address">
+              </div>
+              <div class="mb-3">
+                <label for="post_code">Post Code</label>
+                <input type="text" class="form-control" name="post_code" id="post_code">
               </div>
               <button class="btn btn-primary">Save</button>
             </div>
@@ -114,20 +125,9 @@
       Created with <i class="bi bi-heart-fill text-danger"></i> by Weboender Community 2023
     </p>
   </footer>
-
   <script src="./assets/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/sweetalert2@11.js"></script>
-  <script>
-    const imgInput = document.getElementById('img')
-    const imgPreview = document.getElementById('img-preview')
-
-    imgInput.onchange = evt => {
-      const [file] = imgInput.files
-      if (file) {
-        imgPreview.src = URL.createObjectURL(file)
-      }
-    }
-  </script>
+  <script src="./assets/js/datatables.min.js"></script>
 </body>
 
 </html>

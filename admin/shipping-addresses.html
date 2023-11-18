@@ -17,6 +17,7 @@
   <!-- Styles -->
   <link href="../assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/css/datatables.min.css">
 
   <style>
     main {
@@ -48,13 +49,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="./index.html">Home</a>
+              <a class="nav-link" href="./index.html">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./search.html">Search</a>
+              <a class="nav-link" href="./products.html">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./cart.html">Cart</a>
+              <a class="nav-link" href="./categories.html">Categories</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -82,72 +83,102 @@
   </header>
   <main class="py-3 bg-light">
     <div class="container">
-      <h1>My Profile</h1>
+      <h1>Shipping Addresses</h1>
       <hr>
-      <form class="row">
-        <div class="col-12 col-md-6 col-lg-4 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <img src="../assets/img/user.jpg" alt="" class="img-fluid img-thumbnail mb-3" id="img-preview">
-              <div class="mb-3">
-                <label for="img" class="form-label">Profile Picture</label>
-                <input class="form-control" name="img" type="file" id="img">
-              </div>
-            </div>
+      <div class="mb-3">
+        <a href="./shipping-address-form.html" class="btn btn-primary">New Address</a>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Place Name</th>
+                  <th>PO. Box Number</th>
+                  <th>Street Name</th>
+                  <th>City</th>
+                  <th>Province</th>
+                  <th>Post Code</th>
+                  <th>Country</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>PP. Madinatul Auliya' Al-Ma'mun</td>
+                  <td>-</td>
+                  <td>Jl. Raya Candi VB</td>
+                  <td>Malang City</td>
+                  <td>East Java</td>
+                  <td>65149</td>
+                  <td>Indonesia</td>
+                  <td>
+                    <a href="./payment-method-form.html" class="btn btn-sm btn-warning mb-3">Edit</a>
+                    <a href="#" class="btn btn-sm btn-danger mb-3">Delete</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Mabna Al-Ghazali, UIN Maulana Malik Ibrahim Malang</td>
+                  <td>50</td>
+                  <td>Jl. Gajayana</td>
+                  <td>Malang City</td>
+                  <td>East Java</td>
+                  <td>65144</td>
+                  <td>Indonesia</td>
+                  <td>
+                    <a href="./payment-method-form.html" class="btn btn-sm btn-warning mb-3">Edit</a>
+                    <a href="#" class="btn btn-sm btn-danger mb-3">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="col-12 col-md mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h3>Edit Profile</h3>
-              <hr>
-              <div class="mb-3">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control" value="John Doe">
-              </div>
-              <div class="mb-3">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" value="youremail@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="phone">Phone Number</label>
-                <input type="text" name="phone" id="phone" class="form-control" value="081234567890">
-              </div>
-              <h3>Change Password</h3>
-              <hr>
-              <div class="mb-3">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control">
-              </div>
-              <div class="mb-3">
-                <label for="verify_password">Verify Password</label>
-                <input type="verify_password" name="verify_password" id="verify_password" class="form-control">
-              </div>
-              <button class="btn btn-primary">Save Changes</button>
-            </div>
-          </div>
-        </div>
-      </form>
+      </div>
   </main>
   <footer class="py-3 bg-dark">
     <p class="text-center text-white">
       Created with <i class="bi bi-heart-fill text-danger"></i> by Weboender Community 2023
     </p>
   </footer>
-
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sweetalert2@11.js"></script>
+  <script src="../assets/js/datatables.min.js"></script>
   <script>
-    const imgInput = document.getElementById('img')
-    const imgPreview = document.getElementById('img-preview')
+    $(document).ready(function () {
 
-    imgInput.onchange = evt => {
-      const [file] = imgInput.files
-      if (file) {
-        imgPreview.src = URL.createObjectURL(file)
-      }
-    }
+      // DataTable Initialization
+      $('.table').DataTable();
+
+      // Delete Button On Click
+      $('table a.btn-danger').click((e) => {
+        e.preventDefault();
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = e.target.href;
+          }
+        })
+      })
+    });
   </script>
+
+  <!-- @if (session('message'))
+  <script>
+    Swal.fire("{{ session('message') }}",'','success')
+  </script>
+@endif -->
 </body>
 
 </html>
